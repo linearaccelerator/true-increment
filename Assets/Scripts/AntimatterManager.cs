@@ -18,7 +18,7 @@ public class AntimatterManagaer : MonoBehaviour
         }
 
         antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
-        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatter, y: "F2")}x! Swag!";
+        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatter, y: "F2")}x! Swag!"; 
     }
 
     public void AntimatterReset()
