@@ -8,15 +8,20 @@ using static BreakInfinity.BigDouble;
 [Serializable]
 public class SaveData
 {
+    #region Matter;
     public BigDouble[] matterUpgradeCost = new BigDouble[6];
     public BigDouble[] matterUpgradeProduction = new BigDouble[6];
     public double[] particleCosts = new double[9];
     public bool[] particleUnlocked = new bool[9];
     public BigDouble Matter;
     public BigDouble MatterPerSec;
+    #endregion
+    public BigDouble antimatter;
+    public BigDouble[] antimatterParticleCosts = new BigDouble[7];
 
     public SaveData()
     {
+        #region Matter
         matterUpgradeCost[0] = 10;
         matterUpgradeCost[1] = 100;
         matterUpgradeCost[2] = 1e4;
@@ -39,11 +44,21 @@ public class SaveData
         particleCosts[7] = 1e20;
         particleCosts[8] = 1e30;
 
-        for(var i = 0; i < particleUnlocked.Length; i++){
+        for (var i = 0; i < particleUnlocked.Length; i++)
+        {
             particleUnlocked[i] = false;
         }
 
         Matter = 10;
         MatterPerSec = 0;
+        #endregion
+        //All APs Cost Antimatter
+        antimatterParticleCosts[0] = 10;
+        antimatterParticleCosts[1] = 100;
+        antimatterParticleCosts[2] = 500;
+        antimatterParticleCosts[3] = 2000;
+        antimatterParticleCosts[4] = 1e6;
+        antimatterParticleCosts[5] = 1e10;
+        antimatterParticleCosts[6] = 1e25;
     }
 }
