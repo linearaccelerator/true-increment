@@ -168,7 +168,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    //credit to creeperking
+    //credit to SW_CreeperKing
     public void BuyParticle(int PID)
     {
         if (game.data.Matter < game.data.particleCosts[PID - 1]) return;
