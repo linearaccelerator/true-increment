@@ -17,7 +17,7 @@ public class SaveData
     public BigDouble MatterPerSec;
     #endregion
     public BigDouble antimatter;
-    public BigDouble[] antimatterParticleCosts = new BigDouble[7];
+    public BigDouble[] antiParticleCosts = new BigDouble[7];
 
     public SaveData()
     {
@@ -53,12 +53,12 @@ public class SaveData
         MatterPerSec = 0;
         #endregion
         //All APs Cost Antimatter
-        antimatterParticleCosts[0] = 10;
-        antimatterParticleCosts[1] = 100;
-        antimatterParticleCosts[2] = 500;
-        antimatterParticleCosts[3] = 2000;
-        antimatterParticleCosts[4] = 1e6;
-        antimatterParticleCosts[5] = 1e10;
-        antimatterParticleCosts[6] = 1e25;
+        antiParticleCosts[0] = 10;
+        antiParticleCosts[1] = 100;
+        antiParticleCosts[2] = 500;
+        antiParticleCosts[3] = 2000;
+        antiParticleCosts[4] = 1e6;
+        antiParticleCosts[5] = 1e10;
+        antiParticleCosts[6] = 1e25;
     }
 }
