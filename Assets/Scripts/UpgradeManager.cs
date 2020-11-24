@@ -37,6 +37,7 @@ public class UpgradeManager : MonoBehaviour
     private void Update()
     {
         MatterText.text = $"{Methods.NotationMethodBD(game.data.Matter, y: "F2")} Matter";
+        game.data.MatterPerSec = game.data.MatterPerSec *= game.data.antimatterMulti;
         game.data.Matter += game.data.MatterPerSec * Time.deltaTime;
     }
     public void BuyMatterThing(string MID)
@@ -81,6 +82,10 @@ public class UpgradeManager : MonoBehaviour
                     if (game.data.particleUnlocked[5])
                     {
                         game.data.MatterPerSec += game.data.matterUpgradeProduction[4] * 0.01;
+                    }
+                    if (game.data.antiParticleUnlocked[0])
+                    {
+                        game.data.MatterPerSec += game.data.matterUpgradeProduction[1] * 0.01;
                     }
                     game.data.Matter -= game.data.matterUpgradeCost[1];
                     game.data.matterUpgradeCost[1] *= 1.8;
@@ -156,6 +161,10 @@ public class UpgradeManager : MonoBehaviour
                     if (game.data.particleUnlocked[8])
                     {
                         game.data.MatterPerSec += game.data.matterUpgradeProduction[4] * 0.1;
+                    }
+                    if (game.data.antiParticleUnlocked[1])
+                    {
+                        game.data.matterUpgradeProduction[5] *= 1.1;
                     }
                     game.data.MatterPerSec += game.data.matterUpgradeProduction[5];
                     game.data.Matter -= game.data.matterUpgradeCost[5];
