@@ -49,7 +49,6 @@ public class AntimatterManager : MonoBehaviour
         }
         else
             data.antimatterMulti = data.antimatter * 1.001;
-
         data.matterUpgradeCost[0] = 10;
         data.matterUpgradeCost[1] = 100;
         data.matterUpgradeCost[2] = 1e4;

@@ -6,16 +6,18 @@ using static BreakInfinity.BigDouble;
 public class PersistentMain : MonoBehaviour
 {
     public SaveData data;
+    public AntimatterManager anti;
+    public UpgradeManager ups;
     public GameObject matterPage;
     public GameObject particlesPage;
     public GameObject antimatterPage;
 
     void Start()
     {
-        if (data.isNewSave)
+        if (data.isNewSave2)
         {
             FullReset();
-            data.isNewSave = false;
+            data.isNewSave2 = false;
         }
         SaveSystem.LoadPlayer(ref data);
         matterPage.SetActive(true);
@@ -36,6 +38,31 @@ public class PersistentMain : MonoBehaviour
     public void FullReset()
     {
         data = new SaveData();
+        for (var i = 0; i < anti.antiParticleTexts.Length; i++)
+        {
+            anti.antiParticleTexts[i].text = $"Cost {Methods.NotationMethodBD(data.antiParticleCosts[i], y: "F2")} AnTiMaTtEr";
+        }
+
+        anti.antimatterText.text = $"{Methods.NotationMethodBD(data.antimatter, y: "F2")} GAMEING ANTIMATTER";
+        anti.antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(data.antimatterMulti, y: "F2")}x! Swag!";
+        anti.antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        anti.apocalypseButton.SetActive(false);
+        ups.MatterText.text = $"{Methods.NotationMethodBD(data.Matter, y: "F2")} Matter";
+
+        for (var i = 0; i < ups.matterCostTexts.Length; i++)
+        {
+            ups.matterCostTexts[i].text = $"Costs: {Methods.NotationMethodBD(data.matterUpgradeCost[i], y: "F2")}";
+        }
+
+        for (var i = 0; i < ups.matterProductionTexts.Length && i < data.matterUpgradeProduction.Length; i++)
+        {
+          ups.matterProductionTexts[i].text = $"Gain +{Methods.NotationMethodBD(data.matterUpgradeProduction[i], y: "F2")} Matter/s";
+        }
+
+        for (var i = 0; i < ups.particleTexts.Length; i++)
+        {
+            ups.particleTexts[i].text = $"Cost {Methods.NotationMethodBD(data.particleCosts[i], y: "F2")} Matter";
+        }
     }
 
     public void ChangePage(string PID)
