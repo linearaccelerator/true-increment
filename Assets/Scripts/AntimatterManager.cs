@@ -21,7 +21,7 @@ public class AntimatterManager : MonoBehaviour
 
         antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
         antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatterMulti, y: "F2")}x! Swag!";
-        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((Sqrt(game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
         apocalypseButton.SetActive(false);
     }
 
