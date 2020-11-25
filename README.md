@@ -1,6 +1,6 @@
 # true-increment
 For True Increment
 
-Download: soon lol
+Download: https://flamemasternxf.itch.io/true-increment
 
 Discord: soon lol (2)
