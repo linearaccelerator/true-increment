@@ -28,6 +28,8 @@ public class AntimatterManager : MonoBehaviour
     void Update()
     {
         antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
+        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatterMulti, y: "F2")}x! Swag!";
         if (game.data.Matter >= 1e8)
         {
             apocalypseButton.SetActive(true);
@@ -40,13 +42,13 @@ public class AntimatterManager : MonoBehaviour
     {
         var data = game.data;
 
-        data.antimatter += data.Matter / 1e8;
+        data.antimatter += Sqrt(data.Matter / 1e8);
         if (game.data.antiParticleUnlocked[2])
         {
-            data.antimatterMulti = data.antimatter * 2.5;
+            data.antimatterMulti = data.antimatter * 1.005;
         }
         else
-            data.antimatterMulti = data.antimatter * 2;
+            data.antimatterMulti = data.antimatter * 1.001;
 
         data.matterUpgradeCost[0] = 10;
         data.matterUpgradeCost[1] = 100;

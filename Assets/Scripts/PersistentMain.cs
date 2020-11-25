@@ -12,6 +12,11 @@ public class PersistentMain : MonoBehaviour
 
     void Start()
     {
+        if (data.isNewSave)
+        {
+            FullReset();
+            data.isNewSave = false;
+        }
         SaveSystem.LoadPlayer(ref data);
         matterPage.SetActive(true);
         particlesPage.SetActive(false);
@@ -55,7 +60,8 @@ public class PersistentMain : MonoBehaviour
         }
     }
 
-    IEnumerator SaveTimer(){
+    IEnumerator SaveTimer()
+    {
         yield return new WaitForSecondsRealtime(30);
         SaveSystem.SavePlayer(data);
         yield return new WaitForSecondsRealtime(30);
