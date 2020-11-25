@@ -3,4 +3,4 @@ For True Increment
 
 Download: https://flamemasternxf.itch.io/true-increment
 
-Discord: soon lol (2)
+Discord: https://discord.gg/zbCVqmrS5Q
