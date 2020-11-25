@@ -39,6 +39,16 @@ public class UpgradeManager : MonoBehaviour
         MatterText.text = $"{Methods.NotationMethodBD(game.data.Matter, y: "F2")} Matter";
         game.data.MatterPerSec = game.data.MatterPerSec *= game.data.antimatterMulti;
         game.data.Matter += game.data.MatterPerSec * Time.deltaTime;
+
+        for (var i = 0; i < matterCostTexts.Length; i++)
+        {
+            matterCostTexts[i].text = $"Costs: {Methods.NotationMethodBD(game.data.matterUpgradeCost[i], y: "F2")}";
+        }
+
+        for (var i = 0; i < matterProductionTexts.Length && i < game.data.matterUpgradeProduction.Length; i++)
+        {
+            matterProductionTexts[i].text = $"Gain +{Methods.NotationMethodBD(game.data.matterUpgradeProduction[i], y: "F2")} Matter/s";
+        }
     }
     public void BuyMatterThing(string MID)
     {

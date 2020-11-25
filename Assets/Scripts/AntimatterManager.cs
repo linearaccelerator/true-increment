@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using static BreakInfinity.BigDouble;
-public class AntimatterManagaer : MonoBehaviour
+public class AntimatterManager : MonoBehaviour
 {
     public PersistentMain game;
     public UpgradeManager UM;
     public Text antimatterText;
     public Text antimatterMultiText;
-    public Text[] antiParticleTexts = new Text[5];
+    public Text[] antiParticleTexts = new Text[4];
+    public Text antimatterGainText;
+    public GameObject apocalypseButton;
     void Start()
     {
         for (var i = 0; i < antiParticleTexts.Length; i++)
@@ -18,7 +20,20 @@ public class AntimatterManagaer : MonoBehaviour
         }
 
         antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
-        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatter, y: "F2")}x! Swag!"; 
+        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatterMulti, y: "F2")}x! Swag!";
+        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        apocalypseButton.SetActive(false);
+    }
+
+    void Update()
+    {
+        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        if (game.data.Matter >= 1e8)
+        {
+            apocalypseButton.SetActive(true);
+        }
+        else
+            apocalypseButton.SetActive(false);
     }
 
     public void AntimatterReset()
