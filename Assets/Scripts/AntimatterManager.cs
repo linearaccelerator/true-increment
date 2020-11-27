@@ -14,33 +14,28 @@ public class AntimatterManager : MonoBehaviour
     public GameObject apocalypseButton;
     void Start()
     {
-        var data = game.data;
         for (var i = 0; i < antiParticleTexts.Length; i++)
         {
-            antiParticleTexts[i].text = $"Cost {Methods.NotationMethodBD(data.antiParticleCosts[i], y: "F2")} AnTiMaTtEr";
+            antiParticleTexts[i].text = $"Cost {Methods.NotationMethodBD(game.data.antiParticleCosts[i], y: "F2")} AnTiMaTtEr";
         }
+
+        antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
+        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatterMulti, y: "F2")}x! Swag!";
+        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
         apocalypseButton.SetActive(false);
     }
 
     void Update()
     {
-        var data = game.data;
-        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
-        antimatterText.text = $"{Methods.NotationMethodBD(data.antimatter, y: "F2")} GAMEING ANTIMATTER";
-        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(data.antimatterMulti, y: "F2")}x! Swag!";
+        antimatterGainText.text = $"GAIN +{Methods.NotationMethodBD((game.data.Matter / 1e8), y: "F2")} GAMEING ANTIMATTER";
+        antimatterText.text = $"{Methods.NotationMethodBD(game.data.antimatter, y: "F2")} GAMEING ANTIMATTER";
+        antimatterMultiText.text = $"Your AnTiMaTtEr is multipling your Matter by {Methods.NotationMethodBD(game.data.antimatterMulti, y: "F2")}x! Swag!";
         if (game.data.Matter >= 1e8)
         {
             apocalypseButton.SetActive(true);
         }
         else
             apocalypseButton.SetActive(false);
-            
-        if (game.data.antiParticleUnlocked[2])
-        {
-            data.antimatterMulti = data.antimatter * .005;
-        }
-        else
-            data.antimatterMulti = data.antimatter * .001;
     }
 
     public void AntimatterReset()
@@ -50,10 +45,10 @@ public class AntimatterManager : MonoBehaviour
         data.antimatter += Sqrt(data.Matter / 1e8);
         if (game.data.antiParticleUnlocked[2])
         {
-            data.antimatterMulti = data.antimatter * .005;
+            data.antimatterMulti = data.antimatter * 1.005;
         }
         else
-            data.antimatterMulti = data.antimatter * .001;
+            data.antimatterMulti = data.antimatter * 1.001;
         data.matterUpgradeCost[0] = 10;
         data.matterUpgradeCost[1] = 100;
         data.matterUpgradeCost[2] = 1e4;
