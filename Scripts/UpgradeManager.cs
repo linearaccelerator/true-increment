@@ -34,7 +34,7 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
         MatterText.text = $"{Methods.NotationMethodBD(game.data.Matter, y: "F2")} Matter";
         game.data.Matter += (game.data.MatterPerSec * game.data.antimatterMulti) * Time.deltaTime;

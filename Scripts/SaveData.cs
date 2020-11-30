@@ -8,7 +8,7 @@ using static BreakInfinity.BigDouble;
 [Serializable]
 public class SaveData
 {
-    public bool isNewSave2;
+    public bool isNewSave;
     #region Matter;
     public BigDouble[] matterUpgradeCost = new BigDouble[6];
     public BigDouble[] matterUpgradeProduction = new BigDouble[6];
@@ -24,7 +24,7 @@ public class SaveData
 
     public SaveData()
     {
-        isNewSave2 = true;
+        isNewSave = true;
         #region Matter
         matterUpgradeCost[0] = 10;
         matterUpgradeCost[1] = 100;

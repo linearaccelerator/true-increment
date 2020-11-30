@@ -14,10 +14,10 @@ public class PersistentMain : MonoBehaviour
 
     void Start()
     {
-        if (data.isNewSave2)
+        if (data.isNewSave)
         {
             FullReset();
-            data.isNewSave2 = false;
+            data.isNewSave = false;
         }
         SaveSystem.LoadPlayer(ref data);
         matterPage.SetActive(true);
@@ -56,7 +56,7 @@ public class PersistentMain : MonoBehaviour
 
         for (var i = 0; i < ups.matterProductionTexts.Length && i < data.matterUpgradeProduction.Length; i++)
         {
-          ups.matterProductionTexts[i].text = $"Gain +{Methods.NotationMethodBD(data.matterUpgradeProduction[i], y: "F2")} Matter/s";
+            ups.matterProductionTexts[i].text = $"Gain +{Methods.NotationMethodBD(data.matterUpgradeProduction[i], y: "F2")} Matter/s";
         }
 
         for (var i = 0; i < ups.particleTexts.Length; i++)
