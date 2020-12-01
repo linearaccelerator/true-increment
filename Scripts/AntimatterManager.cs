@@ -17,7 +17,7 @@ public class AntimatterManager : MonoBehaviour
         var data = game.data;
         for (var i = 0; i < antiParticleTexts.Length; i++)
         {
-            antiParticleTexts[i].text = $"Cost {Methods.NotationMethodBD(data.antiParticleCosts[i], y: "F2")} AnTiMaTtEr";
+            antiParticleTexts[i].text = $"Requires {Methods.NotationMethodBD(data.antiParticleCosts[i], y: "F2")} AnTiMaTtEr";
         }
         apocalypseButton.SetActive(false);
     }
