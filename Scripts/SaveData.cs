@@ -9,6 +9,7 @@ using static BreakInfinity.BigDouble;
 public class SaveData
 {
     public bool isNewSave;
+    public BigDouble wrath;
     #region Matter;
     public BigDouble[] matterUpgradeCost = new BigDouble[6];
     public BigDouble[] matterUpgradeProduction = new BigDouble[6];
@@ -26,7 +27,9 @@ public class SaveData
     #region TGT
     public bool startedTGT;
     #endregion
-    public BigDouble wrath;
+    public float[] dgCompletions = new float[5];
+    public float[] dgMaxCompletions = new float[5];
+    public bool[] isInDG = new bool[5];
 
     public SaveData()
     {
@@ -78,6 +81,18 @@ public class SaveData
         #region TGT
         startedTGT = false;
         #endregion
-        wrath = Pow(Log10(Matter + 1), 0.2);
+        for (var i = 0; i < dgCompletions.Length; i++)
+        {
+            dgCompletions[i] = 0;
+        }
+        dgMaxCompletions[0] = 20;
+        dgMaxCompletions[1] = 10;
+        dgMaxCompletions[2] = 3;
+        dgMaxCompletions[3] = 5;
+        dgMaxCompletions[4] = 1;
+        for (var i = 0; i < isInDG.Length; i++)
+        {
+            isInDG[i] = false;
+        }
     }
 }

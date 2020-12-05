@@ -12,6 +12,7 @@ public class PersistentMain : MonoBehaviour
     public GameObject particlesPage;
     public GameObject antimatterPage;
     public GameObject tgtPage;
+    public GameObject dgPage;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PersistentMain : MonoBehaviour
         particlesPage.SetActive(false);
         antimatterPage.SetActive(false);
         tgtPage.SetActive(false);
+        dgPage.SetActive(false);
 
         if (data.Matter == 0)
         {
@@ -76,6 +78,7 @@ public class PersistentMain : MonoBehaviour
                 particlesPage.SetActive(false);
                 antimatterPage.SetActive(false);
                 tgtPage.SetActive(false);
+                dgPage.SetActive(false);
                 break;
             case "Particles":
                 matterPage.SetActive(false);
@@ -92,6 +95,14 @@ public class PersistentMain : MonoBehaviour
                 particlesPage.SetActive(false);
                 antimatterPage.SetActive(false);
                 tgtPage.SetActive(true);
+                dgPage.SetActive(false);
+                break;
+            case "DG":
+                matterPage.SetActive(false);
+                particlesPage.SetActive(false);
+                antimatterPage.SetActive(false);
+                tgtPage.SetActive(false);
+                dgPage.SetActive(true);
                 break;
         }
     }
