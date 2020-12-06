@@ -102,7 +102,7 @@ public class AntimatterManager : MonoBehaviour
 
     public void BuyAntiParticle(int PID)
     {
-        if (game.data.Matter < game.data.antiParticleCosts[PID - 1]) return;
+        if (game.data.antimatter < game.data.antiParticleCosts[PID - 1]) return;
         game.data.Matter -= game.data.antiParticleCosts[PID - 1];
         game.data.antiParticleUnlocked[PID - 1] = true;
         antiParticleTexts[PID - 1].text = "UNLOCKED!";
